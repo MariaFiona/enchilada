@@ -1,0 +1,82 @@
+.badge-feed, .badge-story-tracker, .badge-story-filter, .like-btn,
+	.dislike-btn {
+	cursor: pointer;
+}
+.like-btn,.dislike-btn{
+	color:darkblue;
+}
+
+.actioned .like-btn, .actioned .dislike-btn {
+	color:grey;
+	cursor:default;
+}
+.badge-feed-enabled {
+	background-color: #5cb85c;
+}
+
+.badge-feed-disabled {
+	background-color: #d9534f
+}
+
+.list-group-item:hover {
+	background-color: #eee;
+}
+
+.focused-story, .focused-story:hover {
+	background-color: #dff0d8;
+}
+
+.hide-story {
+	display: none;
+}
+
+.feed-article {
+	/*box-shadow: 3px 3px 3px #888888;*/
+	margin-bottom: 5px;
+	border-top-right-radius: 8px !important;
+	border-bottom-right-radius: 8px !important;
+}
+
+.jira-story {
+	border-right: 7px solid #9A1AF1 !important;
+}
+
+.crucible-story {
+	border-right: 7px solid #9FD825 !important;
+}
+
+.svn-story {
+	border-right: 7px solid #D82525 !important;
+}
+
+.bamboo-story {
+	border-right: 7px solid #1AAAF1 !important;
+}
+
+#stories .list-group-item {
+	padding-bottom: 20px;
+}
+
+.nameAndDate {
+	font-size: x-small;
+}
+
+.sidebar-font {
+	font-family: 'Trebuchet MS';
+	font-size: 16px;
+}
+
+.nav-font {
+	font-family: 'Trebuchet MS';
+	font-size: 20px;
+}
+
+body {
+	background-color: #CDD0D1;
+}
+
+.container-div {
+	background-color: #fff;
+	padding-top: 30px;
+	padding-bottom: 10px;
+}
