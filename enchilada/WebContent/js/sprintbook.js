@@ -181,7 +181,7 @@ function createNewsItem(itemData) {
 	// Link to the source
 	var sourceLink = $("<small><a href='"
 			+ itemData.sourceLink
-			+ "'><span class='story-source'>"
+			+ "' target='_blank'><span class='story-source'>"
 			+ itemData.source
 			+ "</span> <span class='glyphicon glyphicon-link'></span></a></small>");
 	var sourceHeader = $("<div></div>").css({

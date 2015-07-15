@@ -33,6 +33,8 @@
 .feed-article {
 	box-shadow: 3px 3px 3px #888888;
 	margin-bottom: 5px;
+	border-top-right-radius: 8px !important;
+	border-bottom-right-radius: 8px !important;
 }
 
 .jira-story {
