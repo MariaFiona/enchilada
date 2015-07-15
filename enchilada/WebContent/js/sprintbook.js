@@ -108,14 +108,20 @@ $(document)
 								"avatar" : "http://lorempixel.com/g/64/64/city"
 							} ];
 					
-					$.getJSON("http://localhost:8080/Enchilada/enchilada.json", function(response) {
+					var feedFilter = includedFeeds();
+					$.each(data, function(index, resp) {
+						var hidden = $.inArray(resp.source, feedFilter) < 0;
+						createNewsItem(resp, hidden).appendTo("#stories");
+					});
+					
+					/*$.getJSON("http://localhost:8080/Enchilada/enchilada.json", function(response) {
 						var data = response.updates;
 						var feedFilter = includedFeeds();
 						$.each(data, function(index, resp) {
 							var hidden = $.inArray(resp.source, feedFilter) < 0;
 							createNewsItem(resp, hidden).appendTo("#stories");
 						});
-					});
+					});*/
 				});
 
 $(document.body).on("click", ".badge-story-tracker", function() {
