@@ -147,15 +147,18 @@ $(document.body).on("click", ".badge-story-filter", function() {
 			$(this).removeClass('hide-story').fadeIn();
 		});
 	} else {
-		$('#tracked-stories').each(function() {
+		$('#tracked-stories .list-group-item').each(function() {
 			$(this).removeClass('focused-story');
 		});
 		p.addClass('focused-story');
 
 		var storyId = p.data('story-id');
 		$('#stories .list-group-item').each(function() {
+			
 			if ($(this).data('story-id') != storyId) {
 				$(this).addClass('hide-story').fadeOut();
+			}else{
+				$(this).removeClass('hide-story').fadeIn();
 			}
 		});
 	}
