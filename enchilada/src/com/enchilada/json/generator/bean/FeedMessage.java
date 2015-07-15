@@ -1,4 +1,4 @@
-package com.json.generator.bean;
+package com.enchilada.json.generator.bean;
 
 public class FeedMessage {
 	private String source;

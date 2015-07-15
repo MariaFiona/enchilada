@@ -1,9 +1,10 @@
-package com.json.generator.demo;
+package com.enchilada.json.generator;
 
 import java.util.Calendar;
 
-import com.json.generator.bean.FeedMessage;
-import com.json.generator.bean.FeedUser;
+import com.enchilada.json.generator.bean.FeedItem;
+import com.enchilada.json.generator.bean.FeedMessage;
+import com.enchilada.json.generator.bean.FeedUser;
 
 public class FeedFactory {
 

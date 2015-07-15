@@ -1,9 +1,10 @@
-package com.json.generator.demo;
+package com.enchilada.json.generator;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.enchilada.json.generator.bean.FeedItem;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;

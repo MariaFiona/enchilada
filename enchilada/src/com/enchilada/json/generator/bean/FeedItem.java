@@ -1,4 +1,4 @@
-package com.json.generator.demo;
+package com.enchilada.json.generator.bean;
 
 import java.util.Date;
 

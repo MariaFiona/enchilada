@@ -1,4 +1,4 @@
-package com.json.generator.demo;
+package com.enchilada.json.generator;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -7,16 +7,27 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
-import com.json.generator.FeedUserData;
-import com.json.generator.bean.FeedMessage;
-import com.json.generator.bean.FeedUser;
+import com.enchilada.json.generator.bean.FeedMessage;
+import com.enchilada.json.generator.bean.FeedUser;
 
 public class RandomDataPicker {
 
 	private static Map<Integer, String> source = new HashMap<Integer, String>();
 	private static Map<Integer, String> message = new HashMap<Integer, String>();
 	private static Map<Integer, List<String>> msg = new HashMap<Integer, List<String>>();
-	static {
+	private static ArrayList<FeedUser> users = new ArrayList<FeedUser>();
+	static{
+		users.add(new FeedUser("Fiona","http://lorempixel.com/g/64/64/fashion"));
+		users.add(new FeedUser("Omar","http://lorempixel.com/g/64/64/city"));
+		users.add(new FeedUser("Justin","http://lorempixel.com/g/64/64/food"));
+		users.add(new FeedUser("Eliel","http://lorempixel.com/g/64/64/technics"));
+		users.add(new FeedUser("Pat","http://lorempixel.com/g/64/64/cats"));
+		users.add(new FeedUser("Mat","http://lorempixel.com/g/64/64/nature"));
+		users.add(new FeedUser("James","http://lorempixel.com/g/64/64/business"));
+		users.add(new FeedUser("Sriram","http://lorempixel.com/g/64/64/abstract"));
+
+
+	
 		source.put(1, "jira");
 		source.put(2, "bamboo");
 		source.put(3, "crucible");
@@ -58,8 +69,8 @@ public class RandomDataPicker {
 	}
 
 	public static FeedUser getNewUser() {
-		int key = getRandomNumber(FeedUserData.USERS.size() - 1);
-		return FeedUserData.USERS.get(key);
+		int key = getRandomNumber(users.size() - 1);
+		return users.get(key);
 	}
 
 	public static FeedMessage getNewFeedMessage(String storyId) {

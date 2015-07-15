@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.json.generator.demo.JsonDataProvider;
+import com.enchilada.json.generator.JsonDataProvider;
 
 @WebServlet("/sprintbook/enchilada.json")
 public class JsonServlet extends HttpServlet {
