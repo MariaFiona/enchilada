@@ -87,7 +87,7 @@ $(document)
 								"date" : "2015-07-13T03:15:21Z",
 								"message" : "ECM8.3.x › Executive › #1072 failed Responsible: Justin Luciano",
 								"name" : "Justin Luciano",
-								"avatar" : "http://lorempixel.com/g/64/64/food"
+								"avatar" : "http://lorempixel.com/g/64/64/abstract"
 							},
 							{
 								"source" : "crucible",
@@ -111,7 +111,10 @@ $(document)
 							.each(
 									data,
 									function(index, resp) {
-										createNewsItem(resp).appendTo("#stories");
+										var feedFilter = includedFeeds();
+										if($.inArray(resp.source, feedFilter) >= 0) {
+											createNewsItem(resp).appendTo("#stories");
+										}
 									});
 
 				});
@@ -173,4 +176,12 @@ function createNewsItem(itemData) {
 		.appendTo(item);
 
 	return item;
+}
+
+function includedFeeds() {
+	var feeds = [];
+	$(".badge-feed-enabled").each(function() {
+		feeds.push($(this).attr("data-feed"));
+	});
+	return feeds;
 }
