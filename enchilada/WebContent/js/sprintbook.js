@@ -107,16 +107,15 @@ $(document)
 								"name" : "Omar Bacani",
 								"avatar" : "http://lorempixel.com/g/64/64/city"
 							} ];
-					$
-							.each(
-									data,
-									function(index, resp) {
-										var feedFilter = includedFeeds();
-										if($.inArray(resp.source, feedFilter) >= 0) {
-											createNewsItem(resp).appendTo("#stories");
-										}
-									});
-
+					
+					$.getJSON("http://localhost:8080/Enchilada/enchilada.json", function(response) {
+						var data = response.updates;
+						var feedFilter = includedFeeds();
+						$.each(data, function(index, resp) {
+							var hidden = $.inArray(resp.source, feedFilter) < 0;
+							createNewsItem(resp, hidden).appendTo("#stories");
+						});
+					});
 				});
 
 $(document.body).on("click", ".badge-story-tracker", function() {
@@ -149,7 +148,7 @@ $(document.body).on("click", ".badge-story-filter", function() {
 	}
 });
 
-function createNewsItem(itemData) {
+function createNewsItem(itemData, hidden) {
 	
 	// Container
 	var item = $("<div></div>").addClass("list-group-item").addClass(itemData.source + "-story").prop("data-story-id", itemData.userStoryId);
@@ -175,6 +174,10 @@ function createNewsItem(itemData) {
 		.append(itemData.userStoryId + ": " + itemData.message)
 		.appendTo(item);
 
+	if(hidden) {
+		item.css('display','none');
+	}
+	
 	return item;
 }
 
