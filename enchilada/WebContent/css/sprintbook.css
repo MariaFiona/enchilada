@@ -21,3 +21,22 @@
 .hide-story {
 	display: none;
 }
+
+.jira-story {
+	border-right: 7px solid #F1511A !important;
+}
+
+.crucible-story {
+	border-right: 7px solid #9FD825 !important;
+}
+
+.svn-story {
+	border-right: 7px solid #D82525 !important;
+}
+
+.bamboo-story {
+	border-right: 7px solid #1AAAF1 !important;
+
+.nameAndDate {
+	font-size: x-small;
+}
