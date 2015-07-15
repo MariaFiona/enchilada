@@ -69,7 +69,7 @@ $(document)
 								"date" : "2015-07-12T01:24:33Z",
 								"message" : "Justin Luciano spawned an issue",
 								"name" : "Justin Luciano",
-								"avatar" : "http://lorempixel.com/g/64/64/abstract"
+								"avatar" : "images/justin.jpg"
 							},
 							{
 								"source" : "bamboo",
@@ -78,7 +78,7 @@ $(document)
 								"date" : "2015-07-15T04:25:41Z",
 								"message" : "ECM8.3.x › Executive › #1076 was successful Changes by Fiona Morella",
 								"name" : "Fiona Morella",
-								"avatar" : "http://lorempixel.com/g/64/64/fashion"
+								"avatar" : "images/fiona.jpg"
 							},
 							{
 								"source" : "bamboo",
@@ -87,7 +87,7 @@ $(document)
 								"date" : "2015-07-13T03:15:21Z",
 								"message" : "ECM8.3.x › Executive › #1072 failed Responsible: Justin Luciano",
 								"name" : "Justin Luciano",
-								"avatar" : "http://lorempixel.com/g/64/64/abstract"
+								"avatar" : "images/justin.jpg"
 							},
 							{
 								"source" : "crucible",
@@ -96,7 +96,7 @@ $(document)
 								"date" : "2015-07-14T08:43:11Z",
 								"message" : "Sriram Ananthram: Should not return action 'create-alias' for fA00. Do not fix this now as we need to check and ensure all folder types for which alias cannot be created Are handled.",
 								"name" : "Eliel Goco",
-								"avatar" : "http://lorempixel.com/g/64/64/transport"
+								"avatar" : "images/eliel.jpg"
 							},
 							{
 								"source" : "svn",
@@ -105,7 +105,7 @@ $(document)
 								"date" : "2015-07-10T02:30:00Z",
 								"message" : "EWS-1733 Updated resource, service, test",
 								"name" : "Omar Bacani",
-								"avatar" : "http://lorempixel.com/g/64/64/city"
+								"avatar" : "images/omar.jpg"
 							} ];
 
 					var feedFilter = includedFeeds();
@@ -193,10 +193,8 @@ function createNewsItem(itemData) {
 	sourceHeader.appendTo(item);
 
 	$('<br clear="all">').appendTo(item);
-	var theDate = new Date(itemData.date);
 	var nameAndDate = $("<span></span>").addClass('nameAndDate').append(
-			itemData.name + "<br/>").append(
-			jQuery.format.prettyDate(theDate));
+			itemData.name + "<br/>");
 					
 	$('<div></div>').addClass('media-left').append(
 			"<span><a><img class='media-object' src='" + itemData.avatar
@@ -211,7 +209,9 @@ function createNewsItem(itemData) {
 	var minutes = d.getMinutes();
 	var seconds = d.getSeconds();
 	$('<div></div>').addClass('media-body')
-		.append("<div>" + month + "/" + date + "/" + year + " " + hour + ":" + minutes + ":" + seconds + "</div>")
+		.append("<div class='nameAndDate' >" + month + "/" + date + "/" + year + " "
+				+ hour + ":" + minutes + ":" + seconds + " - " 
+				+ jQuery.format.prettyDate(d) + "</div>")
 		.append("<div><b>" + itemData.userStoryId + "</b>: " + itemData.message + "</div>")
 			.appendTo(item);
 	var numLikes = 0;
