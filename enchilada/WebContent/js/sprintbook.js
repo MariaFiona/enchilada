@@ -163,7 +163,7 @@ $(document.body).on("click", ".badge-story-filter", function() {
 		var storyId = p.data('story-id');
 		$('#stories .list-group-item').each(function() {
 
-			if ($(this).data('story-id') != storyId) {
+			if ($(this).prop('data-story-id') != storyId) {
 				$(this).addClass('hide-story').fadeOut();
 			} else {
 				$(this).removeClass('hide-story').fadeIn();
