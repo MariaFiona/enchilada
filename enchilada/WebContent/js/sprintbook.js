@@ -250,7 +250,7 @@ function reloadNewsFeed() {
 }
 
 function autoReload() {
-	var interval = Math.floor((Math.random() * 4) + 1) * 1000;
+	var interval = Math.floor((Math.random() * 8) + 4) * 1000;
 	reloadNewsFeed();
 	setTimeout(autoReload, interval);
 }
