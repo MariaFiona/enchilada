@@ -94,7 +94,7 @@ $(document)
 								"sourceLink" : "http://crucible.objective.com/cru/ECM83-435",
 								"userStoryId" : "EWS-1238",
 								"date" : "2015-07-14T08:43:11Z",
-								"message" : "SriramAnanthram: Should not return action 'create-alias' for fA00. Do not fix this now as we need to check and ensure all folder types for which alias cannot be created Are handled.",
+								"message" : "Sriram Ananthram: Should not return action 'create-alias' for fA00. Do not fix this now as we need to check and ensure all folder types for which alias cannot be created Are handled.",
 								"name" : "Eliel Goco",
 								"avatar" : "http://lorempixel.com/g/64/64/transport"
 							},
@@ -107,20 +107,43 @@ $(document)
 								"name" : "Omar Bacani",
 								"avatar" : "http://lorempixel.com/g/64/64/city"
 							} ];
-					$
-							.each(
-									data,
-									function(index, resp) {
-										var feedFilter = includedFeeds();
-										if($.inArray(resp.source, feedFilter) >= 0) {
-											createNewsItem(resp).appendTo("#stories");
-										}
-									});
 
-				});
+					var feedFilter = includedFeeds();
+					$.each(data, function(index, resp) {
+						var hidden = $.inArray(resp.source, feedFilter) < 0;
+						var newsItem = createNewsItem(resp);
+						newsItem.appendTo("#stories");
+						if(hidden) {
+							newsItem.hide();
+						}
+					});
+		
+		// Button to manually reload 			
+		$("#reloadFeed").click(reloadNewsFeed);
+		
+		// Reload automatically every 2 seconds
+		autoReload();
+});
 
 $(document.body).on("click", ".badge-story-tracker", function() {
 	$(this).parents("li").slideUp();
+});
+
+$(document.body).on("click", ".like-btn", function() {
+	if (!$(this).parents('.likesFooter').hasClass('actioned')) {
+		var likesFooter = $(this).parents('.likesFooter').addClass('actioned');
+		var likeSpan = $(this).parents(".likesFooter").find('.num-likes');
+		var likes = parseInt(likeSpan.html());
+		likeSpan.html(++likes);
+	}
+});
+$(document.body).on("click", ".dislike-btn", function() {
+	if (!$(this).parents('.likesFooter').hasClass('actioned')) {
+		var likesFooter = $(this).parents('.likesFooter').addClass('actioned');
+		var dislikeSpan = $(this).parents(".likesFooter").find('.num-dislikes');
+		var dislikes = parseInt(dislikeSpan.html());
+		dislikeSpan.html(++dislikes);
+	}
 });
 
 $(document.body).on("click", ".badge-story-filter", function() {
@@ -139,10 +162,10 @@ $(document.body).on("click", ".badge-story-filter", function() {
 
 		var storyId = p.data('story-id');
 		$('#stories .list-group-item').each(function() {
-			
-			if ($(this).data('story-id') != storyId) {
+
+			if ($(this).prop('data-story-id') != storyId) {
 				$(this).addClass('hide-story').fadeOut();
-			}else{
+			} else {
 				$(this).removeClass('hide-story').fadeIn();
 			}
 		});
@@ -150,31 +173,62 @@ $(document.body).on("click", ".badge-story-filter", function() {
 });
 
 function createNewsItem(itemData) {
-	
+
 	// Container
-	var item = $("<div></div>").addClass("list-group-item").addClass(itemData.source + "-story").prop("data-story-id", itemData.userStoryId);
+	var item = $("<div></div>").addClass("feed-article").addClass("list-group-item")
+		.addClass(itemData.source + "-story").prop("data-story-id",itemData.userStoryId);
 
 	// Link to the source
-	var sourceLink = $("<small><a href='" + itemData.sourceLink + "'><span class='story-source'>" + itemData.source + "</span><span class='glyphicon glyphicon-link'></span></a></small>");
-	var sourceHeader = $("<div></div>").css({float:"right", position:"relative", top:"5px", clear:"both"} ).append(sourceLink);
+	var sourceLink = $("<small><a href='"
+			+ itemData.sourceLink
+			+ "' target='_blank'><span class='story-source'>"
+			+ itemData.source
+			+ "</span> <span class='glyphicon glyphicon-link'></span></a></small>");
+	var sourceHeader = $("<div></div>").css({
+		float : "right",
+		position : "relative",
+		top : "5px",
+		clear : "both"
+	}).append(sourceLink);
 	sourceHeader.appendTo(item);
-	
+
 	$('<br clear="all">').appendTo(item);
-	var nameAndDate = $("<span></span>").addClass('nameAndDate')
-			.append(itemData.name + "<br/>")
-			.append(jQuery.format.prettyDate(itemData.date));
+	var theDate = new Date(itemData.date);
+	var nameAndDate = $("<span></span>").addClass('nameAndDate').append(
+			itemData.name + "<br/>").append(
+			jQuery.format.prettyDate(theDate));
+					
+	$('<div></div>').addClass('media-left').append(
+			"<span><a><img class='media-object' src='" + itemData.avatar
+					+ "' alt='...'></a></span>").append(nameAndDate).appendTo(
+			item);
+
+	var d = new Date(itemData.date);
+	var month = d.getMonth() + 1;
+	var date = d.getDate();
+	var year = d.getFullYear();
+	var hour = d.getHours();
+	var minutes = d.getMinutes();
+	var seconds = d.getSeconds();
+	$('<div></div>').addClass('media-body')
+		.append("<div>" + month + "/" + date + "/" + year + " " + hour + ":" + minutes + ":" + seconds + "</div>")
+		.append("<div><b>" + itemData.userStoryId + "</b>: " + itemData.message + "</div>")
+			.appendTo(item);
+	var numLikes = 0;
+	var numDislikes = 0;
+	var likes = $("<small><span class='num-likes'>"
+			+ numLikes
+			+ "</span> <span class='like-btn'><span class='glyphicon glyphicon-thumbs-down'></span></span> <span class='num-dislikes'>"
+			+ numDislikes
+			+ "</span> <span href='#' class='dislike-btn'><span class='glyphicon glyphicon-thumbs-up'></span></span></small>");
+	var likesFooter = $("<div></div>").addClass('likesFooter').css({
+		float : "right",
+		position : "relative",
+		bottom : "5px",
+		clear : "both"
+	}).append(likes);
+	likesFooter.appendTo(item);
 	
-	$('<div></div>')
-		.addClass('media-left')
-		.append("<span><a><img class='media-object' src='" + itemData.avatar + "' alt='...'></a></span>")
-		.append(nameAndDate)
-		.appendTo(item);
-
-	$('<div></div>')
-		.addClass('media-body')
-		.append(itemData.userStoryId + ": " + itemData.message)
-		.appendTo(item);
-
 	return item;
 }
 
@@ -184,4 +238,26 @@ function includedFeeds() {
 		feeds.push($(this).attr("data-feed"));
 	});
 	return feeds;
+}
+
+function reloadNewsFeed() {
+	$.getJSON("http://localhost:8080/Enchilada/sprintbook/enchilada.json", function(response) {
+		var data = [response[0]];
+		var feedFilter = includedFeeds();
+		$.each(data, function(index, resp) {
+			var hidden = $.inArray(resp.source, feedFilter) < 0;
+
+			var newsItem = createNewsItem(resp, hidden);
+			newsItem.hide().prependTo("#stories");
+			if(!hidden) {
+				newsItem.fadeIn();
+			}
+		});
+	});
+}
+
+function autoReload() {
+	var interval = Math.floor((Math.random() * 8) + 4) * 1000;
+	reloadNewsFeed();
+	setTimeout(autoReload, interval);
 }

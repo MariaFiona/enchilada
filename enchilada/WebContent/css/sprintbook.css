@@ -1,7 +1,15 @@
-.badge-feed, .badge-story-tracker, .badge-story-filter {
+.badge-feed, .badge-story-tracker, .badge-story-filter, .like-btn,
+	.dislike-btn {
 	cursor: pointer;
 }
+.like-btn,.dislike-btn{
+	color:darkblue;
+}
 
+.actioned .like-btn, .actioned .dislike-btn {
+	color:grey;
+	cursor:default;
+}
 .badge-feed-enabled {
 	background-color: #5cb85c;
 }
@@ -22,8 +30,15 @@
 	display: none;
 }
 
+.feed-article {
+	box-shadow: 3px 3px 3px #888888;
+	margin-bottom: 5px;
+	border-top-right-radius: 8px !important;
+	border-bottom-right-radius: 8px !important;
+}
+
 .jira-story {
-	border-right: 7px solid #F1511A !important;
+	border-right: 7px solid #9A1AF1 !important;
 }
 
 .crucible-story {
@@ -38,6 +53,30 @@
 	border-right: 7px solid #1AAAF1 !important;
 }
 
+#stories .list-group-item {
+	padding-bottom: 20px;
+}
+
 .nameAndDate {
-	font-size: x-small; 
+	font-size: x-small;
+}
+
+.sidebar-font {
+	font-family: 'Trebuchet MS';
+	font-size: 16px;
+}
+
+.nav-font {
+	font-family: 'Trebuchet MS';
+	font-size: 20px;
+}
+
+body {
+	background-color: #CDD0D1;
+}
+
+.container-div {
+	background-color: #fff;
+	padding-top: 30px;
+	padding-bottom: 10px;
 }
