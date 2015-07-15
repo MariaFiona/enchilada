@@ -121,8 +121,8 @@ $(document)
 		// Button to manually reload 			
 		$("#reloadFeed").click(reloadNewsFeed);
 		
-		// Reload automatically every 3 seconds
-		setTimeout(reloadNewsFeed, 3000);
+		// Reload automatically every 2 seconds
+		autoReload();
 });
 
 $(document.body).on("click", ".badge-story-tracker", function() {
@@ -194,10 +194,11 @@ function createNewsItem(itemData) {
 	sourceHeader.appendTo(item);
 
 	$('<br clear="all">').appendTo(item);
+	var theDate = new Date(itemData.date);
 	var nameAndDate = $("<span></span>").addClass('nameAndDate').append(
 			itemData.name + "<br/>").append(
-			jQuery.format.prettyDate(itemData.date));
-
+			jQuery.format.prettyDate(theDate));
+					
 	$('<div></div>').addClass('media-left').append(
 			"<span><a><img class='media-object' src='" + itemData.avatar
 					+ "' alt='...'></a></span>").append(nameAndDate).appendTo(
@@ -234,7 +235,7 @@ function includedFeeds() {
 
 function reloadNewsFeed() {
 	$.getJSON("http://localhost:8080/Enchilada/sprintbook/enchilada.json", function(response) {
-		var data = response[0];
+		var data = [response[0]];
 		var feedFilter = includedFeeds();
 		$.each(data, function(index, resp) {
 			var hidden = $.inArray(resp.source, feedFilter) < 0;
@@ -246,4 +247,10 @@ function reloadNewsFeed() {
 			}
 		});
 	});
+}
+
+function autoReload() {
+	var interval = Math.floor((Math.random() * 8) + 4) * 1000;
+	reloadNewsFeed();
+	setTimeout(autoReload, interval);
 }
