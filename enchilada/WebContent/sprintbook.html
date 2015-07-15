@@ -1,195 +1,187 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-			<meta http-equiv="X-UA-Compatible" content="IE=edge">
-				<meta name="viewport" content="width=device-width, initial-scale=1">
-					<title>Bootstrap 101 Template</title>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bootstrap 101 Template</title>
 
-					<!-- Bootstrap -->
-					<link href="css/bootstrap.min.css" rel="stylesheet">
+<!-- Bootstrap -->
+<link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/sprintbook.css" rel="stylesheet">
-					</head>
-					<body>
-						<nav class="navbar navbar-inverse">
-							<div class="container-fluid">
-								<!-- Brand and toggle get grouped for better mobile display -->
-								<div class="navbar-header">
-									<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-										<span class="sr-only">Toggle navigation</span>
-										<span class="icon-bar"></span>
-										<span class="icon-bar"></span>
-										<span class="icon-bar"></span>
-									</button>
-									<a class="navbar-brand" href="#">Sprintbook</a>
-								</div>
+</head>
+<body>
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+					aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">Sprintbook</a>
+			</div>
 
-								<!-- Collect the nav links, forms, and other content for toggling -->
-								<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse"
+				id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav navbar-right">
+					<li class="dropdown"><a href="#" class="dropdown-toggle"
+						data-toggle="dropdown" role="button" aria-haspopup="true"
+						aria-expanded="false">Hello, user <span class="caret"></span>
+					</a>
+						<ul class="dropdown-menu">
+							<li><a href="#">Action</a></li>
+							<li><a href="#">Another action</a></li>
+							<li role="separator" class="divider" />
+							<li><a href="#">Separated link</a></li>
+						</ul></li>
+				</ul>
+			</div>
+			<!-- /.navbar-collapse -->
+		</div>
+		<!-- /.container-fluid -->
+	</nav>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-2">
+				<h4>Tracked Stories</h4>
 
-									<ul class="nav navbar-nav navbar-right">
+				<ul class="list-group" id="tracked-stories">
+					<li role="presentation" class="list-group-item tracked-story"
+						data-story-id="EWS-1233">EWS-1233 <span class="badge badge-story-filter">
+							<span class="glyphicon glyphicon-filter"></span>
+					</span><span class="badge badge-story-tracker"> <span
+							class="glyphicon glyphicon-remove"></span>
+					</span></li>
+					<li role="presentation" class="list-group-item tracked-story"
+						data-story-id="EWS-1234">EWS-1234 <span class="badge badge-story-filter">
+							<span class="glyphicon glyphicon-filter"></span>
+					</span><span class="badge badge-story-tracker">
+							<span class="glyphicon glyphicon-remove"></span>
+					</span></li>
+					<li role="presentation" class="list-group-item tracked-story"
+						data-story-id="EWS-1235">EWS-1235 <span class="badge badge-story-filter">
+							<span class="glyphicon glyphicon-filter"></span>
+					</span><span class="badge badge-story-tracker">
+							<span class="glyphicon glyphicon-remove"></span>
+					</span></li>
 
-										<li class="dropdown">
-											<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hello, user <span class="caret"></span>
-											</a>
-											<ul class="dropdown-menu">
-												<li>
-													<a href="#">Action</a>
-												</li>
-												<li>
-													<a href="#">Another action</a>
-												</li>
-												<li>
-													<a href="#">Something else here</a>
-												</li>
-												<li role="separator" class="divider"/>
-												<li>
-													<a href="#">Separated link</a>
-												</li>
-											</ul>
-										</li>
-									</ul>
-								</div>
-								<!-- /.navbar-collapse -->
-							</div>
-							<!-- /.container-fluid -->
-						</nav>
-						<div class="container">
-							<div class="row">
-								<div class="col-lg-2">
-									<h4>Tracked Stories</h4>
-									<ul class="list-group" id="tracked-stories">
-										<li role="presentation" class="list-group-item" data-story-id="EWS-1235">
-											<a href="#">EWS-1235</a>
-											<span class="badge badge-story-tracker">
-												<span class="glyphicon glyphicon-remove"></span>
-											</span>
-										</li>
-										<li role="presentation" class="list-group-item" data-story-id="EWS-1222">
-											<a href="#">EWS-1222</a>
-											<span class="badge badge-story-tracker">
-												<span class="glyphicon glyphicon-remove"></span>
-											</span>
-										</li>
-										<li role="presentation" class="list-group-item" data-story-id="EWS-2067">
-											<a href="#">EWS-2067 </a>
-											<span class="badge badge-story-tracker">
-												<span class="glyphicon glyphicon-remove"></span>
-											</span>
-										</li>
-
-										<li role="presentation" class="list-group-item" id="add-story">
-											<div class="input-group">
-												<input type="text" class="form-control" id="add-story-input">
-													<span class="input-group-btn">
-														<button class="btn btn-default" type="button" id="add-story-button">+</button>
-													</span>
-												</div>
-											</li>
-										</ul>
+					<li role="presentation" class="list-group-item" id="add-story">
+						<div class="input-group">
+							<input type="text" class="form-control" id="add-story-input">
+							<span class="input-group-btn">
+								<button class="btn btn-default" type="button"
+									id="add-story-button">+</button>
+							</span>
+						</div>
+					</li>
+				</ul>
 
 
-										<h4>Included Feeds</h4>
-										<ul class="list-group">
-											<li role="presentation" class="list-group-item">
-												<a href="#">JIRA</a>
-												<span class="badge badge-feed badge-feed-enabled" data-feed="jira">
-													<span class="glyphicon glyphicon-ok"></span>
-												</span>
-											</li>
-											<li role="presentation" class="list-group-item" >
-												<a href="#">Bamboo </a>
-												<span class="badge badge-feed badge-feed-disabled" data-feed="bamboo">
-													<span class="glyphicon glyphicon-remove"></span>
-												</span>
-											</li>
-											<li role="presentation" class="list-group-item">
-												<a href="#">Crucible </a>
-												<span class="badge badge-feed badge-feed-enabled" data-feed="crucible">
-													<span class="glyphicon glyphicon-ok"></span>
-												</span>
-											</li>
-											<li role="presentation" class="list-group-item">
-												<a href="#">SVN </a>
-												<span class="badge badge-feed badge-feed-enabled" data-feed="svn">
-													<span class="glyphicon glyphicon-ok"></span>
-												</span>
-											</li>
-										</ul>
-									</div>
-									<div class="col-lg-9">
-										<div class="list-group" id="stories">
-											<div class="list-group-item jira-story">
-												<div style="float:right;position:relative;top:5px;clear:both;">
-													<small>
-														<a href="#">
-															<span class="story-source">JIRA</span>
-															<span class="glyphicon glyphicon-link"></span>
-														</a>
-													</small>
-												</div>
-												<br clear="all" />
-												<div class="media-left">
-													<a href="#">
-														<img class="media-object" src="http://lorempixel.com/g/64/64/abstract" alt="...">
-														</a>
-													</div>
-													<div class="media-body">Donec ac rhoncus mi <b>EWS-1234</b>. Donec in rhoncus sem. Phasellus faucibus ligula porta sodales sollicitudin. Suspendisse ac condimentum nunc. Nulla consectetur auctor dui in aliquet. Fusce eget eros eu urna accumsan blandit sit amet eget orci. Vestibulum dignissim lacus vel odio vulputate eleifend.</div>
+				<h4>Included Feeds</h4>
+				<ul class="list-group">
+					<li role="presentation" class="list-group-item"><a href="#">JIRA</a>
+						<span class="badge badge-feed badge-feed-enabled" data-feed="jira">
+							<span class="glyphicon glyphicon-ok"></span>
+					</span></li>
+					<li role="presentation" class="list-group-item"><a href="#">Bamboo
+					</a> <span class="badge badge-feed badge-feed-disabled"
+						data-feed="bamboo"> <span
+							class="glyphicon glyphicon-remove"></span>
+					</span></li>
+					<li role="presentation" class="list-group-item"><a href="#">Crucible
+					</a> <span class="badge badge-feed badge-feed-enabled"
+						data-feed="crucible"> <span class="glyphicon glyphicon-ok"></span>
+					</span></li>
+					<li role="presentation" class="list-group-item"><a href="#">SVN
+					</a> <span class="badge badge-feed badge-feed-enabled" data-feed="svn">
+							<span class="glyphicon glyphicon-ok"></span>
+					</span></li>
+				</ul>
+			</div>
+			<div class="col-lg-9">
+				<div class="list-group" id="stories">
+					<div class="list-group-item jira-story" data-story-id="EWS-1234">
+						<div
+							style="float: right; position: relative; top: 5px; clear: both;">
+							<small> <a href="#"> <span class="story-source">JIRA</span>
+									<span class="glyphicon glyphicon-link"></span>
+							</a>
+							</small>
+						</div>
+						<br clear="all" />
+						<div class="media-left">
+							<a href="#"> <img class="media-object"
+								src="http://lorempixel.com/g/64/64/abstract" alt="...">
+							</a>
+						</div>
+						<div class="media-body">
+							Donec ac rhoncus mi <b>EWS-1234</b>. Donec in rhoncus sem.
+							Phasellus faucibus ligula porta sodales sollicitudin. Suspendisse
+							ac condimentum nunc. Nulla consectetur auctor dui in aliquet.
+							Fusce eget eros eu urna accumsan blandit sit amet eget orci.
+							Vestibulum dignissim lacus vel odio vulputate eleifend.
+						</div>
 
 
 
-												</div>
-												<div class="list-group-item jira-story">
-													<div style="float:right;position:relative;top:5px;clear:both;">
-														<small>
-															<a href="#">
-																<span class="story-source">JIRA</span>
-																<span class="glyphicon glyphicon-link"></span>
-															</a>
-														</small>
-													</div>
-													<br clear="all" />
-													<div class="media-left">
-														<a href="#">
-															<img class="media-object" src="http://lorempixel.com/g/64/64/cats" alt="...">
-															</a>
-														</div>
-														<div class="media-body"> Praesent blandit dolor <b>EWS-1234</b> at tristique hendrerit. Nullam lorem mauris, suscipit et nisi in, facilisis pellentesque ligula.</div>
+					</div>
+					<div class="list-group-item jira-story" data-story-id="EWS-1233">
+						<div
+							style="float: right; position: relative; top: 5px; clear: both;">
+							<small> <a href="#"> <span class="story-source">JIRA</span>
+									<span class="glyphicon glyphicon-link"></span>
+							</a>
+							</small>
+						</div>
+						<br clear="all" />
+						<div class="media-left">
+							<a href="#"> <img class="media-object"
+								src="http://lorempixel.com/g/64/64/cats" alt="...">
+							</a>
+						</div>
+						<div class="media-body">
+							Praesent blandit dolor <b>EWS-1233</b> at tristique hendrerit.
+							Nullam lorem mauris, suscipit et nisi in, facilisis pellentesque
+							ligula.
+						</div>
 
 
 
-													</div>
-													<div class="list-group-item crucible-story">
-														<div style="float:right;position:relative;top:5px;clear:both;">
-															<small>
-																<a href="#">
-																	<span class="story-source">Crucible</span>
-																	<span class="glyphicon glyphicon-link"></span>
-																</a>
-															</small>
-														</div>
-														<br clear="all" />
-														<div class="media-left">
-															<a href="#">
-																<img class="media-object" src="http://lorempixel.com/g/64/64/business" alt="...">
-																</a>
-															</div>
-															<div class="media-body"> Mauris ex lacus, efficitur eu purus eu, lobortis congue augue. Vivamus fringilla <b>EWS-1234</b> interdum diam nec lobortis. Donec lobortis mi sit amet purus tempus tempus. Suspendisse malesuada.
-																<blockquote>
-																	Fiat justitia ruat caelum
-																</blockquote>
-															</div>
+					</div>
+					<div class="list-group-item crucible-story" data-story-id="EWS-1235">
+						<div
+							style="float: right; position: relative; top: 5px; clear: both;">
+							<small> <a href="#"> <span class="story-source">Crucible</span>
+									<span class="glyphicon glyphicon-link"></span>
+							</a>
+							</small>
+						</div>
+						<br clear="all" />
+						<div class="media-left">
+							<a href="#"> <img class="media-object"
+								src="http://lorempixel.com/g/64/64/business" alt="...">
+							</a>
+						</div>
+						<div class="media-body">
+							Mauris ex lacus, efficitur eu purus eu, lobortis congue augue.
+							Vivamus fringilla <b>EWS-1235</b> interdum diam nec lobortis.
+							Donec lobortis mi sit amet purus tempus tempus. Suspendisse
+							malesuada.
+							<blockquote>Fiat justitia ruat caelum</blockquote>
+						</div>
+					</div>
+				</div>
 
-
-
-														</div>
-													</div>
-
-												</div>
-											</div>
-										</div>
-										<script src="js/jquery.min.js"></script>
-										<script src="js/bootstrap.min.js"></script>
-										<script src="js/sprintbook.js"></script>
-									</body>
-								</html>
+			</div>
+		</div>
+	</div>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/sprintbook.js"></script>
+</body>
+</html>

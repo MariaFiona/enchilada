@@ -1,7 +1,23 @@
-.badge-feed-enabled{
-	background-color:#5cb85c;
+.badge-feed, .badge-story-tracker, .badge-story-filter {
+	cursor: pointer;
 }
 
-.badge-feed-disabled{
-	background-color:#d9534f
+.badge-feed-enabled {
+	background-color: #5cb85c;
+}
+
+.badge-feed-disabled {
+	background-color: #d9534f
+}
+
+.list-group-item:hover {
+	background-color: #eee;
+}
+
+.focused-story, .focused-story:hover {
+	background-color: #dff0d8;
+}
+
+.hide-story {
+	display: none;
 }
