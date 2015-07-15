@@ -30,6 +30,11 @@
 	display: none;
 }
 
+.feed-article {
+	box-shadow: 3px 3px 3px #888888;
+	margin-bottom: 5px;
+}
+
 .jira-story {
 	border-right: 7px solid #9A1AF1 !important;
 }
@@ -52,4 +57,24 @@
 
 .nameAndDate {
 	font-size: x-small;
+}
+
+.sidebar-font {
+	font-family: 'Trebuchet MS';
+	font-size: 16px;
+}
+
+.nav-font {
+	font-family: 'Trebuchet MS';
+	font-size: 20px;
+}
+
+body {
+	background-color: #CDD0D1;
+}
+
+.container-div {
+	background-color: #fff;
+	padding-top: 30px;
+	padding-bottom: 10px;
 }

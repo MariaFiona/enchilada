@@ -28,12 +28,12 @@
 			</div>
 
 			<!-- Collect the nav links, forms, and other content for toggling -->
-			<div class="collapse navbar-collapse"
+			<div class="collapse navbar-collapse nav-font"
 				id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav navbar-right">
 					<li class="dropdown"><a href="#" class="dropdown-toggle"
 						data-toggle="dropdown" role="button" aria-haspopup="true"
-						aria-expanded="false">Hello, user <span class="caret"></span>
+						aria-expanded="false">Hello, Fiona<span class="caret"></span>
 					</a>
 						<ul class="dropdown-menu">
 							<li><a href="#">My Profile</a></li>
@@ -49,74 +49,54 @@
 	</nav>
 	<div class="container">
 		<div class="row">
-			<div class="col-lg-2">
-				<h4>Tracked Stories</h4>
-
-				<ul class="list-group" id="tracked-stories">
-					<li role="presentation" class="list-group-item tracked-story"
-						data-story-id="EWS-1233">EWS-1233 <span
-						class="badge badge-story-filter"> <span
-							class="glyphicon glyphicon-filter"></span>
-					</span><span class="badge badge-story-tracker"> <span
-							class="glyphicon glyphicon-remove"></span>
-					</span></li>
-					<li role="presentation" class="list-group-item tracked-story"
-						data-story-id="EWS-1234">EWS-1234 <span
-						class="badge badge-story-filter"> <span
-							class="glyphicon glyphicon-filter"></span>
-					</span><span class="badge badge-story-tracker"> <span
-							class="glyphicon glyphicon-remove"></span>
-					</span></li>
-					<li role="presentation" class="list-group-item tracked-story"
-						data-story-id="EWS-1235">EWS-1235 <span
-						class="badge badge-story-filter"> <span
-							class="glyphicon glyphicon-filter"></span>
-					</span><span class="badge badge-story-tracker"> <span
-							class="glyphicon glyphicon-remove"></span>
-					</span></li>
-
-					<li role="presentation" class="list-group-item" id="add-story">
-						<div class="input-group">
-							<input type="text" class="form-control" id="add-story-input">
-							<span class="input-group-btn">
-								<button class="btn btn-default" type="button"
-									id="add-story-button">+</button>
-							</span>
-						</div>
-					</li>
-				</ul>
-
-
-				<h4>Included Feeds</h4>
-				<ul class="list-group">
-					<li role="presentation" class="list-group-item jira-story">JIRA
-						<span class="badge badge-feed badge-feed-enabled" data-feed="jira">
-							<span class="glyphicon glyphicon-ok"></span>
-					</span>
-					</li>
-					<li role="presentation" class="list-group-item bamboo-story">Bamboo
-						<span class="badge badge-feed badge-feed-disabled"
-						data-feed="bamboo"> <span
-							class="glyphicon glyphicon-remove"></span>
-					</span>
-					</li>
-					<li role="presentation" class="list-group-item crucible-story">Crucible
-						<span class="badge badge-feed badge-feed-enabled"
-						data-feed="crucible"> <span class="glyphicon glyphicon-ok"></span>
-					</span>
-					</li>
-					<li role="presentation" class="list-group-item svn-story">SVN
-						<span class="badge badge-feed badge-feed-enabled" data-feed="svn">
-							<span class="glyphicon glyphicon-ok"></span>
-					</span>
-					</li>
-				</ul>
-			</div>
-			<div class="col-lg-9">
-				<div class="list-group" id="stories">
-					
+			<div class="col-lg-12 container-div">
+				<div class="col-lg-2">
+					<h4>Tracked Stories</h4>
+	
+					<ul class="list-group sidebar-font" id="tracked-stories">
+						<li role="presentation" class="list-group-item" id="add-story">
+							<div class="input-group">
+								<input type="text" class="form-control" id="add-story-input">
+								<span class="input-group-btn">
+									<button class="btn btn-default" type="button"
+										id="add-story-button">+</button>
+								</span>
+							</div>
+						</li>
+					</ul>
+	
+	
+					<h4>Included Feeds</h4>
+					<ul class="list-group sidebar-font">
+						<li role="presentation" class="list-group-item jira-story">JIRA
+							<span class="badge badge-feed badge-feed-enabled" data-feed="jira">
+								<span class="glyphicon glyphicon-ok"></span>
+						</span>
+						</li>
+						<li role="presentation" class="list-group-item bamboo-story">Bamboo
+							<span class="badge badge-feed badge-feed-disabled"
+							data-feed="bamboo"> <span
+								class="glyphicon glyphicon-remove"></span>
+						</span>
+						</li>
+						<li role="presentation" class="list-group-item crucible-story">Crucible
+							<span class="badge badge-feed badge-feed-enabled"
+							data-feed="crucible"> <span class="glyphicon glyphicon-ok"></span>
+						</span>
+						</li>
+						<li role="presentation" class="list-group-item svn-story">SVN
+							<span class="badge badge-feed badge-feed-enabled" data-feed="svn">
+								<span class="glyphicon glyphicon-ok"></span>
+						</span>
+						</li>
+					</ul>
 				</div>
-
+				<div class="col-lg-10">
+					<div class="list-group" id="stories">
+						
+					</div>
+	
+				</div>
 			</div>
 		</div>
 	</div>

@@ -175,9 +175,8 @@ $(document.body).on("click", ".badge-story-filter", function() {
 function createNewsItem(itemData) {
 
 	// Container
-	var item = $("<div></div>").addClass("list-group-item").addClass(
-			itemData.source + "-story").prop("data-story-id",
-			itemData.userStoryId);
+	var item = $("<div></div>").addClass("feed-article").addClass("list-group-item")
+		.addClass(itemData.source + "-story").prop("data-story-id",itemData.userStoryId);
 
 	// Link to the source
 	var sourceLink = $("<small><a href='"
@@ -204,8 +203,16 @@ function createNewsItem(itemData) {
 					+ "' alt='...'></a></span>").append(nameAndDate).appendTo(
 			item);
 
-	$('<div></div>').addClass('media-body').append(
-			"<b>" + itemData.userStoryId + "</b>: " + itemData.message)
+	var d = new Date(itemData.date);
+	var month = d.getMonth() + 1;
+	var date = d.getDate();
+	var year = d.getFullYear();
+	var hour = d.getHours();
+	var minutes = d.getMinutes();
+	var seconds = d.getSeconds();
+	$('<div></div>').addClass('media-body')
+		.append("<div>" + month + "/" + date + "/" + year + " " + hour + ":" + minutes + ":" + seconds + "</div>")
+		.append("<div><b>" + itemData.userStoryId + "</b>: " + itemData.message + "</div>")
 			.appendTo(item);
 	var numLikes = 0;
 	var numDislikes = 0;
