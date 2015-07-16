@@ -3,6 +3,7 @@ package com.enchilada.json.generator.bean;
 import java.util.Date;
 
 public class FeedItem {
+
     private String source;
     private String sourceLink;
     private String userStoryId;
@@ -10,6 +11,8 @@ public class FeedItem {
     private String message;
     private String name;
     private String avatar;
+    private String likes;
+    private String dislikes;
 
     public String getSource() {
         return source;
@@ -65,6 +68,22 @@ public class FeedItem {
 
     public void setAvatar(String avatar) {
         this.avatar = avatar;
+    }
+
+    public String getLikes() {
+        return likes;
+    }
+
+    public void setLikes(String likes) {
+        this.likes = likes;
+    }
+
+    public String getDislikes() {
+        return dislikes;
+    }
+
+    public void setDislikes(String dislikes) {
+        this.dislikes = dislikes;
     }
 
 }

@@ -8,45 +8,45 @@ import com.enchilada.json.generator.bean.FeedUser;
 
 public class FeedFactory {
 
-	public static FeedItem getNewItem() {
-		FeedItem item = new FeedItem();
+	public static FeedItem newItem() {
+        FeedItem item = new FeedItem();
 		FeedUser user = RandomDataPicker.getNewUser();
-		String storyId = RandomDataPicker.getNewStoryId();
+        String storyId = RandomDataPicker.getNewStoryId();
 
 		FeedMessage message = RandomDataPicker.getNewFeedMessage(storyId);
 
-		String context = "";
-		String prefix = "";
+        String context = "";
+        String prefix = "";
 
 		if (message.getSource().equals("jira")) {
-			context = "browse";
-			prefix = "EWS-";
+            context = "browse";
+            prefix = "EWS-";
 		} else if (message.getSource().equals("bamboo")) {
-			context = "browse";
-			prefix = "ECM831-EXEC-";
+            context = "browse";
+            prefix = "ECM831-EXEC-";
 		} else if (message.getSource().equals("crucible")) {
-			context = "cru";
-			prefix = "ECM83-";
+            context = "cru";
+            prefix = "ECM83-";
 		}else if (message.getSource().equals("svn")) {
 			context = "repos";
 			prefix = "EWS-";
-		}
+        }
 
 
-		String sourceLink = "http://" + message.getSource() + ".objective.com/" + context + "/"
+		String sourceLink = "http://" + message.getSource().toLowerCase() + ".objective.com/" + context + "/"
 				+ prefix + storyId;
 		if (message.getSource().equals("svn")) {
-			sourceLink = "";
-		}
+            sourceLink = "";
+        }
 
 		item.setSource(message.getSource());
-		item.setSourceLink(sourceLink);
-		item.setUserStoryId("EWS-"+storyId);
-		item.setDate(Calendar.getInstance().getTime());
+        item.setSourceLink(sourceLink);
+        item.setUserStoryId(storyId);
+        item.setDate(Calendar.getInstance().getTime());
 		item.setMessage(user.getName() + " " + message.getMessage());
 		item.setName(user.getName());
 		item.setAvatar(user.getAvatar());
-		return item;
-	}
+        return item;
+    }
 
 }

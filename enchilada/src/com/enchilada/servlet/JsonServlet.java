@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.enchilada.json.generator.JsonDataProvider;
 
-@WebServlet("/sprintbook/enchilada.json")
+@WebServlet("/enchilada.json")
 public class JsonServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -22,7 +22,7 @@ public class JsonServlet extends HttpServlet {
 	    JsonDataProvider jdp = new JsonDataProvider();
 
 	    HttpServletResponse resp = (HttpServletResponse) response;
-        resp.getWriter().write(jdp.generateJsonData());
+        resp.getWriter().write(jdp.generateJson());
         resp.getWriter().flush();
 	}
 
